@@ -26,6 +26,9 @@ require_once( dirname( __FILE__ ) . '/inc/helpers.php' );
 // Modifications to WP core behaviour.
 require_once( dirname( __FILE__ ) . '/inc/modifications.php' );
 
+// Modifications to third party plugins.
+require_once( dirname( __FILE__ ) . '/inc/thirdparty.php' );
+
 // Customisations / helpers which are only required in /wp-admin/.
 if ( is_admin() ) {
 	require_once( dirname( __FILE__ ) . '/inc/admin.php' );
