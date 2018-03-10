@@ -15,4 +15,3 @@ function dm_is_blog_page() {
 	$posttype = get_post_type( $post );
 	return ( ( ( is_archive() ) || ( is_author() ) || ( is_category() ) || ( is_home() ) || ( is_single() ) || ( is_tag() ) ) && ( 'post' == $posttype ) ) ? true : false;
 }
-
