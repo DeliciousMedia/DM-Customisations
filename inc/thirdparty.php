@@ -5,6 +5,11 @@
  * @package dm-customisations
  */
 
+// Disallow direct access.
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
 /**
  * Shift the Yoast metabox to the bottom of post screens.
  */

@@ -5,6 +5,11 @@
  * @package dm-customisations
  */
 
+// Disallow direct access.
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
 /**
  * Remove unwanted HTTP headers
  *
@@ -109,6 +114,8 @@ if ( defined( 'DM_DISABLE_RSS' ) && DM_DISABLE_RSS ) {
 	add_action( 'do_feed_atom', 'dmnet_disable_feed', 1 );
 	add_action( 'do_feed_rss2_comments', 'dmnet_disable_feed', 1 );
 	add_action( 'do_feed_atom_comments', 'dmnet_disable_feed', 1 );
+	remove_action( 'wp_head', 'feed_links_extra', 3 );
+	remove_action( 'wp_head', 'feed_links', 2 );
 }
 
 /**
@@ -121,10 +128,10 @@ if ( defined( 'DM_DISABLE_RSS' ) && DM_DISABLE_RSS ) {
  */
 function dm_disable_search( $query, $error = true ) {
 	if ( is_search() ) {
-		$query->is_search = false;
+		$query->is_search       = false;
 		$query->query_vars['s'] = false;
-		$query->query['s'] = false;
-		if ( true == $error ) {
+		$query->query['s']      = false;
+		if ( true === $error ) {
 			$query->is_404 = true;
 		}
 	}
