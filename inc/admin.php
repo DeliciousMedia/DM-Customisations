@@ -5,6 +5,11 @@
  * @package  dm-customisations
  */
 
+// Disallow direct access.
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
+}
+
 /**
  * CMB2 specificity functionality.
  */
