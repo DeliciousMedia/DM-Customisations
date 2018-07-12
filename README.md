@@ -10,13 +10,13 @@ Modifications to WordPress's default behaviour to better suit our projects. Also
 - Disables builtin search functionality (Toggle with `DM_DISABLE_SEARCH`; default false).
 - Disables output of emoji styles/scripts (Toggle with `DM_DISABLE_EMOJIS`; default true) ☹️.
 - Disables RSS feeds (Toggle with `DM_DISABLE_RSS`; default true).
-- Tracks last login times for users accounts (Toggle with `DM_LASTLOGIN`; defaults to true).
 - Prevents anonymous access to the REST API (Toggle with `DM_DISABLE_REST_ANON`; default true).
 - Removes XMLRPC functionality; X-Pingback headers; tidies up wp_head();
 
 ### Additional functionality
 
 - Adds a 'Flush Cache' button to the admin bar when in /wp-admin/ which allows users to flush the object cache (By default this is visble to users with the Editor or Administrator role, you can override this by setting `DM_CACHEFLUSH_PERMS` to contain an array of the desired roles).	
+- Tracks last login times for users accounts (Toggle with `DM_LASTLOGIN`; defaults to true).
 
 ### Third party plugin modifications
 
