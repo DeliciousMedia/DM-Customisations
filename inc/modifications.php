@@ -86,7 +86,7 @@ if ( defined( 'DM_DISABLE_EMOJIS' ) && DM_DISABLE_EMOJIS ) {
 function dm_deny_unauthenticated_rest_api_access( $access ) {
 	if ( ! is_user_logged_in() ) {
 		return new WP_Error(
-			'rest_cannot_access', __( 'Authentication required.', 'cocoon' ), [
+			'rest_cannot_access', __( 'Authentication required.', 'dm' ), [
 				'status' => rest_authorization_required_code(),
 			]
 		);
@@ -157,7 +157,7 @@ function dm_remove_comment_support() {
  *
  * @return void
  */
-function cocoon_remove_comment_menu() {
+function dm_remove_comment_menu() {
 	remove_menu_page( 'edit-comments.php' );
 }
 
@@ -166,13 +166,13 @@ function cocoon_remove_comment_menu() {
  *
  * @return void
  */
-function cocoon_remove_comments_adminbar() {
+function dm_remove_comments_adminbar() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu( 'comments' );
 }
 
 if ( defined( 'DM_DISABLE_COMMENTS' ) && DM_DISABLE_COMMENTS ) {
 	add_action( 'init', 'dm_remove_comment_support', 900 );
-	add_action( 'admin_menu', 'cocoon_remove_comment_menu' );
-	add_action( 'wp_before_admin_bar_render', 'cocoon_remove_comments_adminbar' );
+	add_action( 'admin_menu', 'dm_remove_comment_menu' );
+	add_action( 'wp_before_admin_bar_render', 'dm_remove_comments_adminbar' );
 }
