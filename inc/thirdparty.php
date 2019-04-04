@@ -14,7 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Shift the Yoast metabox to the bottom of post screens.
  */
 add_filter(
-	'wpseo_metabox_prio', function() {
+	'wpseo_metabox_prio',
+	function() {
 		return 'low';
 	}
 );
@@ -24,8 +25,18 @@ add_filter(
  */
 if ( defined( 'DM_GFORM_DELETE' ) && DM_GFORM_DELETE ) {
 	add_action(
-		'gform_after_submission', function( $entry, $form ) {
+		'gform_after_submission',
+		function( $entry, $form ) {
 			GFAPI::delete_entry( $entry['id'] );
-		}, 99, 2
+		},
+		99,
+		2
 	);
 }
+
+/**
+ * Don't show WooCommerce Extension suggestions.
+ *
+ * @link: https://woocommerce.wordpress.com/2019/04/03/extension-suggestions-in-3-6/
+ */
+add_filter( ‘woocommerce_allow_marketplace_suggestions’, ‘__return_false’ );
