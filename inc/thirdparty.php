@@ -39,4 +39,4 @@ if ( defined( 'DM_GFORM_DELETE' ) && DM_GFORM_DELETE ) {
  *
  * @link: https://woocommerce.wordpress.com/2019/04/03/extension-suggestions-in-3-6/
  */
-add_filter( ‘woocommerce_allow_marketplace_suggestions’, ‘__return_false’ );
+add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
