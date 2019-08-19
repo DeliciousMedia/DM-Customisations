@@ -3,7 +3,7 @@
  * Plugin Name: DM Customisations
  * Plugin URI: https://github.com/DeliciousMedia/DM-Customisations
  * Description: Tweaks and modifications to WordPress along with some helpers and utility functions.
- * Version: 2.1.3
+ * Version: 2.2.0
  * Author: Delicious Media Limited
  * Author URI: https://www.deliciousmedia.co.uk/
  * License: GPLv3 or later
