@@ -78,6 +78,7 @@ if ( defined( 'DM_DISABLE_EMOJIS' ) && DM_DISABLE_EMOJIS ) {
 
 /**
  * Filter to prevent the REST API being available to unauthenticated users.
+ * Individual namespaces can be white-listed by filtering dm_allowed_anonymous_restnamespaces.
  *
  * @param  null|bool|WP_Error $access Authentication result for REST API.
  *
@@ -85,8 +86,32 @@ if ( defined( 'DM_DISABLE_EMOJIS' ) && DM_DISABLE_EMOJIS ) {
  */
 function dm_deny_unauthenticated_rest_api_access( $access ) {
 	if ( ! is_user_logged_in() ) {
+
+		$allowed_namespaces = apply_filters( 'dm_allowed_anonymous_restnamespaces', [] );
+
+		// If we've got any allowed namespaces then permit access to them.
+		if ( ! empty( $allowed_namespaces ) ) {
+
+			if ( isset( $_REQUEST['rest_route'] ) ) {
+				$rest_path = ltrim( $_REQUEST['rest_route'], '/' );
+			} elseif ( get_option( 'permalink_structure' ) ) {
+				$path = '/' . trim( urldecode( $_SERVER['REQUEST_URI'] ), '/' ) . '/';
+				$pos = strlen( get_rest_url() );
+				$rest_path = trim( substr( get_home_url() . $path, $pos ), '/' );
+			}
+			$requested_namespace = substr( trailingslashit( $rest_path ), 0, strpos( trailingslashit( $rest_path ), '/' ) );
+			foreach ( $allowed_namespaces as $namespace ) {
+				if ( $namespace === $requested_namespace ) {
+					return $access;
+				}
+			}
+		}
+
+		// Otherwise, nope.
 		return new WP_Error(
-			'rest_cannot_access', __( 'Authentication required.', 'dm' ), [
+			'rest_cannot_access',
+			__( 'Authentication required.', 'dm' ),
+			[
 				'status' => rest_authorization_required_code(),
 			]
 		);
@@ -96,6 +121,7 @@ function dm_deny_unauthenticated_rest_api_access( $access ) {
 if ( defined( 'DM_DISABLE_REST_ANON' ) && DM_DISABLE_REST_ANON ) {
 	add_filter( 'rest_authentication_errors', 'dm_deny_unauthenticated_rest_api_access', 10 );
 }
+
 /**
  * Return a message saying the feed is not available.
  *
