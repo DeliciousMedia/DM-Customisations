@@ -34,6 +34,9 @@ if ( defined( 'DM_GFORM_DELETE' ) && DM_GFORM_DELETE ) {
 	);
 }
 
+// Prevent GravityForms from tracking form views.
+add_filter( 'gform_disable_view_counter', '__return_true' );
+
 /**
  * Don't show WooCommerce Extension suggestions.
  *
