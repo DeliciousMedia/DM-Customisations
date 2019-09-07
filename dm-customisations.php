@@ -3,7 +3,7 @@
  * Plugin Name: DM Customisations
  * Plugin URI: https://github.com/DeliciousMedia/DM-Customisations
  * Description: Tweaks and modifications to WordPress along with some helpers and utility functions.
- * Version: 2.2.1
+ * Version: 2.2.2
  * Author: Delicious Media Limited
  * Author URI: https://www.deliciousmedia.co.uk/
  * License: GPLv3 or later
@@ -22,6 +22,7 @@ defined( 'DM_DISABLE_RSS' ) || define( 'DM_DISABLE_RSS', true );
 defined( 'DM_MODIFY_PLUGINS_SCREEN' ) || define( 'DM_MODIFY_PLUGINS_SCREEN', true );
 defined( 'DM_GFORM_DELETE' ) || define( 'DM_GFORM_DELETE', true );
 defined( 'DM_LASTLOGIN' ) || define( 'DM_LASTLOGIN', true );
+defined( 'DM_REMOVE_YOAST_ADS' ) || define( 'DM_REMOVE_YOAST_ADS', true );
 
 
 // Array of user roles to give the ability to flush the object cache.

@@ -13,6 +13,7 @@ Modifications to WordPress's default behaviour to better suit our projects. Also
 - Prevents anonymous access to the REST API (Toggle with `DM_DISABLE_REST_ANON`; default true). By filtering dm_allowed_anonymous_restnamespaces individual namespaces can be whitelisted.
 - Modifies plugin install screen to show our recommended plugins first (Toggle with `DM_MODIFY_PLUGINS_SCREEN`; default true).
 - Removes XMLRPC functionality; X-Pingback headers; tidies up wp_head();
+- Remove aggressive advertising in wp-admin from Yoast's WordPress SEO plugin when deleting posts or terms (Toggle with `DM_REMOVE_YOAST_ADS`; defaults to true).
 
 ### Additional functionality
 
