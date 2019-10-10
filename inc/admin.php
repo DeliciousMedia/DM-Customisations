@@ -5,11 +5,6 @@
  * @package  dm-customisations
  */
 
-// Disallow direct access.
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
-
 /**
  * CMB2 specificity functionality.
  */
@@ -76,7 +71,8 @@ function dm_add_flush_object_cache_button() {
 							'action' => 'dm_flush_object_cache',
 							admin_url( 'index.php' ),
 						]
-					), 'dm-flush-object-cache'
+					),
+					'dm-flush-object-cache'
 				),
 			]
 		);
@@ -107,14 +103,16 @@ function dm_process_cache_flush_request() {
 
 	if ( $result ) {
 		add_action(
-			'admin_notices', function() {
+			'admin_notices',
+			function() {
 			?><div class="notice notice-success is-dismissible"><p>Object cache flushed successfully.</p></div>
 			<?php
 			}
 		);
 	} else {
 		add_action(
-			'admin_notices', function() {
+			'admin_notices',
+			function() {
 			?>
 			<div class="notice notice-warning is-dismissible"><p>Error flushing object cache.</p></div>
 			<?php

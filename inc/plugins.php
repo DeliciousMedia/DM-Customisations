@@ -5,6 +5,7 @@
  * @package dm-customisations
  */
 
+
 /**
  * Add our tab to the list of tabs on the plugins screen.
  *
@@ -65,7 +66,7 @@ function dm_plugins_admin_notice() {
 			<?php
 				printf(
 					// translators: %s is a link to the DM Suggested plugins screen.
-					__( "Some plugins may affect the speed and reliability of your website, or change the way it appears. If you are unsure, please feel free to contact <a href='https://www.deliciousmedia.co.uk/'>Delicious Media</a> for advice or take a look at the <a href='%s'>plugins Delicious Media recommendeds</a>.", 'dm-customisations' ),
+					__( "Some plugins may affect the speed and reliability of your website, or change the way it appears. If you are unsure, please feel free to contact <a href='https://www.deliciousmedia.co.uk/'>Delicious Media</a> for advice or take a look at the <a href='%s'>plugins Delicious Media recommends</a>.", 'dm-customisations' ),
 					esc_url( network_admin_url( 'plugin-install.php?tab=deliciousmedia' ) )
 				);
 			?>

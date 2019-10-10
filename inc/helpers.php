@@ -5,11 +5,6 @@
  * @package dm-customisations
  */
 
-// Disallow direct access.
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
-
 if ( ! function_exists( 'dm_is_dev' ) ) {
 	/**
 	 * Are we running under a Delicious Media development environment?
