@@ -5,11 +5,6 @@
  * @package dm-customisations
  */
 
-// Disallow direct access.
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
-
 /**
  * Shift the Yoast metabox to the bottom of post screens.
  */
@@ -23,7 +18,7 @@ add_filter(
 /**
  * Remove aggressive advertising inserted into wp-admin by Yoast plugin when deleting posts or terms.
  */
-if ( defined( 'DM_REMOVE_YOAST_ADS' ) && DM_REMOVE_YOAST_ADS && is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+if ( defined( 'DM_REMOVE_YOAST_ADS' ) && DM_REMOVE_YOAST_ADS ) {
 
 	// Don't need to remove this is the "Premium" version is installed.
 	if ( class_exists( 'WPSEO_Utils' ) && WPSEO_Utils::is_yoast_seo_premium() ) {

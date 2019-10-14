@@ -5,11 +5,6 @@
  * @package dm-customisations
  */
 
-// Disallow direct access.
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
-
 /**
  * Remove unwanted HTTP headers
  *
@@ -202,3 +197,11 @@ if ( defined( 'DM_DISABLE_COMMENTS' ) && DM_DISABLE_COMMENTS ) {
 	add_action( 'admin_menu', 'dm_remove_comment_menu' );
 	add_action( 'wp_before_admin_bar_render', 'dm_remove_comments_adminbar' );
 }
+
+
+
+
+
+
+
+
