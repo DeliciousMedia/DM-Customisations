@@ -148,6 +148,9 @@ if ( defined( 'DM_DISABLE_RSS' ) && DM_DISABLE_RSS ) {
  * @return void.
  */
 function dm_disable_search( $query, $error = true ) {
+	if ( is_admin() ) {
+		return $query;
+	}
 	if ( is_search() ) {
 		$query->is_search       = false;
 		$query->query_vars['s'] = false;
